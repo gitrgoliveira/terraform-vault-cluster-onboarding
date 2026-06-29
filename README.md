@@ -45,7 +45,7 @@ Trust. This module creates trust only. It does not create principals, policies, 
 
 ## No-code provisioning
 
-This module is no-code enabled in the `hc-ric-demo` private registry (pinned to `0.0.1`). To deploy without writing HCL: open the module in the registry, click **Provision workspace**, choose a project and workspace name, then complete the form.
+This module is no-code enabled in the `hc-ric-demo` private registry (pinned to `0.0.2`). To deploy without writing HCL: open the module in the registry, click **Provision workspace**, choose a project and workspace name, then complete the form.
 
 Form fields:
 
@@ -64,7 +64,7 @@ The first run plans automatically after the workspace is created.
 ```hcl
 module "cluster_onboarding" {
   source  = "app.terraform.io/<org>/cluster-onboarding/vault"
-  version = "~> 0.1"
+  version = "~> 0.0.2"
 
   cluster_name       = "ocp-prod-eu"
   jwt_issuer         = "https://kubernetes.default.svc"
