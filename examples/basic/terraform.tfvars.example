@@ -1,0 +1,8 @@
+cluster_name       = "ocp-prod-eu"
+jwt_issuer         = "https://kubernetes.default.svc"
+oidc_discovery_url = "https://kubernetes.default.svc"
+bound_audiences    = ["vault"]
+
+# Optional render-only values commonly supplied by project variable sets
+vault_address   = "https://vault.example.com"
+vault_namespace = "admin/prod/payments"
