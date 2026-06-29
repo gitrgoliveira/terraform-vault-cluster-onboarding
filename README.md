@@ -43,6 +43,22 @@ Trust. This module creates trust only. It does not create principals, policies, 
 | `vault_namespace` | Echo |
 | `vault_address` | Echo |
 
+## No-code provisioning
+
+This module is no-code enabled in the `hc-ric-demo` private registry (pinned to `0.0.1`). To deploy without writing HCL: open the module in the registry, click **Provision workspace**, choose a project and workspace name, then complete the form.
+
+Form fields:
+
+| Field | Required | Notes |
+|---|---|---|
+| `cluster_name` | yes | Cluster identifier |
+| `jwt_issuer` | yes | OIDC issuer URL |
+| `oidc_discovery_url` / `jwks_url` / `jwt_validation_pubkeys` | yes | Set exactly one |
+| `bound_audiences` | no | Default `["vault"]` |
+| `default_lease_ttl` / `max_lease_ttl` | no | Tune TTLs |
+
+The first run plans automatically after the workspace is created.
+
 ## Registry usage
 
 ```hcl
