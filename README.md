@@ -26,11 +26,8 @@ Trust. This module creates trust only. It does not create principals, policies, 
 | `oidc_discovery_url` | `string` | Optional discovery URL, mutually exclusive |
 | `jwks_url` | `string` | Optional JWKS URL, mutually exclusive |
 | `jwt_validation_pubkeys` | `list(string)` | Optional PEM keys, mutually exclusive |
-| `bound_audiences` | `list(string)` | Echoed for downstream principal role binding, default `["vault"]` |
 | `default_lease_ttl` | `string` | Tune default TTL, default `1h` |
 | `max_lease_ttl` | `string` | Tune max TTL, default `24h` |
-| `vault_namespace` | `string` | Render-only, default `""` |
-| `vault_address` | `string` | Render-only, default `""` |
 
 ## Outputs
 
@@ -39,13 +36,10 @@ Trust. This module creates trust only. It does not create principals, policies, 
 | `jwt_auth_path` | JWT mount path (`jwt/<cluster_name>`) |
 | `jwt_mount_accessor` | JWT mount accessor for entity alias creation |
 | `cluster_name` | Echo |
-| `bound_audiences` | Echo |
-| `vault_namespace` | Echo |
-| `vault_address` | Echo |
 
 ## No-code provisioning
 
-This module is no-code enabled in the `hc-ric-demo` private registry (pinned to `0.0.2`). To deploy without writing HCL: open the module in the registry, click **Provision workspace**, choose a project and workspace name, then complete the form.
+This module is no-code enabled in the `hc-ric-demo` private registry (pinned to `0.1.0`). To deploy without writing HCL: open the module in the registry, click **Provision workspace**, choose a project and workspace name, then complete the form.
 
 Form fields:
 
@@ -54,7 +48,6 @@ Form fields:
 | `cluster_name` | yes | Cluster identifier |
 | `jwt_issuer` | yes | OIDC issuer URL |
 | `oidc_discovery_url` / `jwks_url` / `jwt_validation_pubkeys` | yes | Set exactly one |
-| `bound_audiences` | no | Default `["vault"]` |
 | `default_lease_ttl` / `max_lease_ttl` | no | Tune TTLs |
 
 The first run plans automatically after the workspace is created.
@@ -64,12 +57,11 @@ The first run plans automatically after the workspace is created.
 ```hcl
 module "cluster_onboarding" {
   source  = "app.terraform.io/<org>/cluster-onboarding/vault"
-  version = "~> 0.0.2"
+  version = "~> 0.1.0"
 
   cluster_name       = "ocp-prod-eu"
   jwt_issuer         = "https://kubernetes.default.svc"
   oidc_discovery_url = "https://kubernetes.default.svc"
-  bound_audiences    = ["vault"]
 }
 ```
 

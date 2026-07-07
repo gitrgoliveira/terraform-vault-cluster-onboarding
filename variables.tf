@@ -1,9 +1,3 @@
-variable "bound_audiences" {
-  type        = list(string)
-  description = "Audiences to be used by downstream JWT login roles."
-  default     = ["vault"]
-}
-
 variable "cluster_name" {
   type        = string
   description = "Short cluster identifier used in mount naming."
@@ -56,16 +50,4 @@ variable "oidc_discovery_url" {
     ) == 1
     error_message = "Set exactly one of oidc_discovery_url, jwks_url, or jwt_validation_pubkeys."
   }
-}
-
-variable "vault_address" {
-  type        = string
-  description = "Render-only Vault address value supplied via TF_VAR_vault_address."
-  default     = ""
-}
-
-variable "vault_namespace" {
-  type        = string
-  description = "Render-only Vault namespace value supplied via TF_VAR_vault_namespace."
-  default     = ""
 }
