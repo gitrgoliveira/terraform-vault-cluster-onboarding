@@ -9,6 +9,6 @@ output "jwt_auth_path" {
 }
 
 output "jwt_mount_accessor" {
-  description = "JWT auth mount accessor for identity alias creation in principal modules."
+  description = "JWT auth mount accessor for identity alias creation in workload modules."
   value       = vault_jwt_auth_backend.this.accessor
 }
