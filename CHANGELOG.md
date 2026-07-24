@@ -2,6 +2,15 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.0] - 2026-07-24
+
+### Changed
+- **Breaking:** renamed `jwt_validation_pubkeys` (type `list(string)`) to `jwt_validation_pubkey` (type `string`). The module now accepts a single PEM public key instead of a list. Leave empty to use OIDC discovery or JWKS URL instead.
+
+### Added
+- Validation on `default_lease_ttl` and `max_lease_ttl` to enforce duration format (e.g. `3600`, `60m`, `1h`).
+- Validation on `jwt_issuer` to require an `https://` prefix.
+
 ## [0.1.1] - 2026-07-07
 
 ### Changed
