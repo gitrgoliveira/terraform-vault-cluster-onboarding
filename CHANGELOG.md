@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [0.2.1] - 2026-11-13
+
+### Changed
+
+- Documentation only: The registry example and `terraform.tfvars.example` use a reachable OIDC issuer instead of the in-cluster `https://kubernetes.default.svc`, and the README explains that HCP Vault must reach `<oidc_discovery_url>/.well-known/openid-configuration` without authentication and that the discovery `issuer` must match `jwt_issuer` exactly.
+
 ## [0.2.0] - 2026-07-24
 
 ### Changed
